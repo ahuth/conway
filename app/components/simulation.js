@@ -9,7 +9,7 @@ var Simulation = React.createClass({
     return (
       <div>
         <Slider />
-        <Grid />
+        <Grid height={10} width={10} />
       </div>
     );
   }

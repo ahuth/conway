@@ -3,21 +3,18 @@
 import Cell from "./cell";
 import React from "react";
 
-function Row() {
+function Row({width}) {
   return (
     <div>
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
+      {Array(width).fill().map(function (element, index) {
+        return <Cell key={index} />;
+      })}
     </div>
   );
 }
+
+Row.propTypes = {
+  width: React.PropTypes.number.isRequired
+};
 
 export default Row;

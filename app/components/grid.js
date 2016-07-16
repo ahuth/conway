@@ -3,21 +3,19 @@
 import React from "react";
 import Row from "./row";
 
-function Grid() {
+function Grid({height, width}) {
   return (
     <div>
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
-      <Row />
+      {Array(height).fill().map(function (element, index) {
+        return <Row width={width} key={index} />;
+      })}
     </div>
   );
 }
+
+Grid.propTypes = {
+  height: React.PropTypes.number.isRequired,
+  width: React.PropTypes.number.isRequired
+};
 
 export default Grid;

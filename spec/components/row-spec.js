@@ -7,11 +7,11 @@ describe("components", function () {
     var component;
 
     beforeEach(function () {
-      component = shallow(<Row />);
+      component = shallow(<Row width={7} />);
     });
 
-    it("has 10 cells", function () {
-      expect(component.find("Cell").length).toBe(10);
+    it("has the specified number of cells", function () {
+      expect(component.find("Cell").length).toBe(7);
     });
   });
 });
