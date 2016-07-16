@@ -2,12 +2,13 @@
 
 import React from "react";
 import Row from "./row";
+import times from "../utils/times";
 
 function Grid({height, width}) {
   return (
     <div style={styles.grid}>
-      {Array(height).fill().map(function (element, index) {
-        return <Row width={width} key={index} />;
+      {times(height, function (number) {
+        return <Row width={width} key={number} />;
       })}
     </div>
   );
