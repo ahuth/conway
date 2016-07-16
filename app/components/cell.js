@@ -11,7 +11,9 @@ var styles = {
     display: "inline-block",
     height: 10,
     width: 10,
-    border: "1px solid black"
+    border: "1px solid black",
+    marginRight: -1,
+    marginBottom: -1
   }
 };
 
