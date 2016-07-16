@@ -11,5 +11,12 @@ describe("actions", function () {
         size: 11
       });
     });
+
+    it("handles string size values", function () {
+      expect(actions.setSize("2")).toEqual({
+        type: actionTypes.SIZE_SET,
+        size: 2
+      });
+    });
   });
 });

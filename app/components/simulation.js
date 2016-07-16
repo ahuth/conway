@@ -24,8 +24,7 @@ var Simulation = React.createClass({
   },
 
   handleSizeChange: function (event) {
-    var value = parseInt(event.target.value, 10);
-    store.dispatch(setSize(value));
+    store.dispatch(setSize(event.target.value));
   },
 
   render: function () {
