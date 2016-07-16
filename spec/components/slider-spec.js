@@ -4,10 +4,11 @@ import {shallow} from "enzyme";
 
 describe("components", function () {
   describe("<Slider />", function () {
-    var component;
+    var component, changeSpy;
 
     beforeEach(function () {
-      component = shallow(<Slider value={3} />);
+      changeSpy = jasmine.createSpy("change");
+      component = shallow(<Slider onChange={changeSpy} value={3} />);
     });
 
     it("has a label", function () {
@@ -21,6 +22,16 @@ describe("components", function () {
 
       it("has the specified value", function () {
         expect(component.find("input").prop("value")).toBe(3);
+      });
+
+      describe("when changing the value", function () {
+        beforeEach(function () {
+          component.find("input").simulate("change");
+        });
+
+        it("executes the callback", function () {
+          expect(changeSpy).toHaveBeenCalled();
+        });
       });
     })
   });
