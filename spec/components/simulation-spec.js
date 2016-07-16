@@ -13,5 +13,9 @@ describe("components", function () {
     it("has a slider", function () {
       expect(component.find("Slider").length).toBe(1);
     });
+
+    it("has a grid", function () {
+      expect(component.find("Grid").length).toBe(1);
+    });
   });
 });
