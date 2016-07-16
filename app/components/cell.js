@@ -2,8 +2,9 @@
 
 import React from "react";
 
-function Cell() {
-  return <div style={styles.cell}></div>;
+function Cell({alive}) {
+  var aliveStyle = alive ? {backgroundColor: "black"} : {};
+  return <div style={Object.assign({}, styles.cell, aliveStyle)}></div>;
 }
 
 var styles = {
