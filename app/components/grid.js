@@ -5,7 +5,7 @@ import Row from "./row";
 
 function Grid({height, width}) {
   return (
-    <div>
+    <div style={styles.grid}>
       {Array(height).fill().map(function (element, index) {
         return <Row width={width} key={index} />;
       })}
@@ -16,6 +16,13 @@ function Grid({height, width}) {
 Grid.propTypes = {
   height: React.PropTypes.number.isRequired,
   width: React.PropTypes.number.isRequired
+};
+
+var styles = {
+  grid: {
+    display: "flex",
+    flexDirection: "column"
+  }
 };
 
 export default Grid;

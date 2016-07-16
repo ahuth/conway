@@ -5,7 +5,7 @@ import React from "react";
 
 function Row({width}) {
   return (
-    <div>
+    <div style={styles.row}>
       {Array(width).fill().map(function (element, index) {
         return <Cell key={index} />;
       })}
@@ -15,6 +15,12 @@ function Row({width}) {
 
 Row.propTypes = {
   width: React.PropTypes.number.isRequired
+};
+
+var styles = {
+  row: {
+    display: "flex"
+  }
 };
 
 export default Row;
