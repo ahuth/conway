@@ -1,3 +1,5 @@
+"use strict";
+
 import React from "react";
 import Slider from "components/slider";
 import {shallow} from "enzyme";

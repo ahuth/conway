@@ -1,3 +1,5 @@
+"use strict";
+
 import React from "react";
 import Simulation from "components/simulation";
 import store from "store";

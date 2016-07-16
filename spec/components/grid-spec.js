@@ -1,3 +1,5 @@
+"use strict";
+
 import Grid from "components/grid";
 import React from "react";
 import Row from "components/row";

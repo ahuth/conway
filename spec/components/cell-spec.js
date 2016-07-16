@@ -1,3 +1,5 @@
+"use strict";
+
 import React from "react";
 import Cell from "components/cell";
 import {shallow} from "enzyme";
