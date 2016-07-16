@@ -25,7 +25,7 @@ var Simulation = React.createClass({
   render: function () {
     return (
       <div>
-        <Slider />
+        <Slider value={this.state.size.height} />
         <Grid height={this.state.size.height} width={this.state.size.width} />
       </div>
     );
