@@ -2,9 +2,10 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import Slider from "./components/slider";
 
 function Index() {
-  return <span>hello world</span>;
+  return <Slider />;
 }
 
 ReactDOM.render(<Index />, document.getElementById("content"));
