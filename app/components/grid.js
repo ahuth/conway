@@ -3,18 +3,19 @@
 import React from "react";
 import Row from "./row";
 
-function Grid({cells}) {
+function Grid({cells, onCellClick}) {
   return (
     <div style={styles.grid}>
       {cells.map(function (moreCells, index) {
-        return <Row cells={moreCells} key={index} />;
+        return <Row cells={moreCells} key={index} onCellClick={onCellClick} />;
       })}
     </div>
   );
 }
 
 Grid.propTypes = {
-  cells: React.PropTypes.arrayOf(React.PropTypes.array)
+  cells: React.PropTypes.arrayOf(React.PropTypes.array),
+  onCellClick: React.PropTypes.func
 };
 
 var styles = {
