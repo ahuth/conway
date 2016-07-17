@@ -33,11 +33,11 @@ describe("components", function () {
 
     describe("clicking a row's cell", function () {
       beforeEach(function () {
-        component.find("Row").first().simulate("cellClick");
+        component.find("Row").first().simulate("cellClick", 5);
       });
 
-      it("executes the provided callback", function () {
-        expect(clickSpy).toHaveBeenCalled();
+      it("executes the provided callback with the index and column", function () {
+        expect(clickSpy).toHaveBeenCalledWith(0, 5);
       });
     });
   });

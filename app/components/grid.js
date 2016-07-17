@@ -7,7 +7,7 @@ function Grid({cells, onCellClick}) {
   return (
     <div style={styles.grid}>
       {cells.map(function (moreCells, index) {
-        return <Row cells={moreCells} key={index} onCellClick={onCellClick} />;
+        return <Row cells={moreCells} key={index} onCellClick={(column) => onCellClick(index, column)} />;
       })}
     </div>
   );

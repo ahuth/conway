@@ -7,7 +7,7 @@ function Row({cells, onCellClick}) {
   return (
     <div style={styles.row}>
       {cells.map(function (alive, index) {
-        return <Cell alive={alive} key={index} onClick={onCellClick} />;
+        return <Cell alive={alive} key={index} onClick={onCellClick.bind(null, index)} />;
       })}
     </div>
   );

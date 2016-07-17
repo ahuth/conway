@@ -29,8 +29,8 @@ describe("components", function () {
         component.find("Cell").first().simulate("click");
       });
 
-      it("executes the provided callback", function () {
-        expect(clickSpy).toHaveBeenCalled();
+      it("executes the provided callback with the index of the cell", function () {
+        expect(clickSpy).toHaveBeenCalledWith(0);
       });
     });
   });
