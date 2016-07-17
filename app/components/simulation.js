@@ -3,6 +3,7 @@
 import Grid from "./grid";
 import React from "react";
 import store from "../store";
+import {toggleCell} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -21,10 +22,14 @@ var Simulation = React.createClass({
     this.setState(store.getState());
   },
 
+  onCellClick: function (row, column) {
+    store.dispatch(toggleCell(row, column));
+  },
+
   render: function () {
     return (
       <div>
-        <Grid cells={this.state.cells} />
+        <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );
   }
