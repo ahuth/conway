@@ -2,13 +2,19 @@
 
 import React from "react";
 
-function Cell({alive}) {
+function Cell({alive, onClick}) {
   var aliveStyle = alive ? {backgroundColor: "black"} : {};
-  return <div style={Object.assign({}, styles.cell, aliveStyle)}></div>;
+  return (
+    <div
+      onClick={onClick}
+      style={Object.assign({}, styles.cell, aliveStyle)}
+    />
+  );
 }
 
 Cell.propTypes = {
-  alive: React.PropTypes.bool
+  alive: React.PropTypes.bool,
+  onClick: React.PropTypes.func
 };
 
 var styles = {

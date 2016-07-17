@@ -6,21 +6,31 @@ import {shallow} from "enzyme";
 
 describe("components", function () {
   describe("<Cell />", function () {
-    describe("without props", function () {
+    var clickSpy;
+
+    beforeEach(function () {
+      clickSpy = jasmine.createSpy("click");
+    });
+
+    describe("behaviors", function () {
       var component;
 
       beforeEach(function () {
-        component = shallow(<Cell />);
+        component = shallow(<Cell onClick={clickSpy} />);
       });
 
       it("is a div", function () {
         expect(component.is("div")).toBe(true)
       });
 
-      it("is styled appropriately", function () {
-        expect(component.prop("style")).not.toEqual(jasmine.objectContaining({
-          backgroundColor: "black"
-        }));
+      describe("when clicked", function () {
+        beforeEach(function () {
+          component.simulate("click");
+        });
+
+        it("executs the provided callback", function () {
+          expect(clickSpy).toHaveBeenCalled();
+        });
       });
     });
 
