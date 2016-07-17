@@ -31,7 +31,7 @@ var Simulation = React.createClass({
     return (
       <div>
         <Slider onChange={this.handleSizeChange} value={this.state.size.height} />
-        <Grid height={this.state.size.height} width={this.state.size.width} />
+        <Grid cells={this.state.cells} />
       </div>
     );
   }

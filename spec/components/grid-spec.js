@@ -10,15 +10,22 @@ describe("components", function () {
     var component;
 
     beforeEach(function () {
-      component = shallow(<Grid height={6} width={8} />);
+      component = shallow(
+        <Grid
+          cells={[
+            [false, true],
+            [true, false]
+          ]}
+        />
+      );
     });
 
-    it("has the specified number of rows", function () {
-      expect(component.find("Row").length).toBe(6);
+    it("has the correct number of rows", function () {
+      expect(component.find("Row").length).toBe(2);
     });
 
-    it("sets the width on the rows", function () {
-      var row = <Row width={8} />;
+    it("sets the right cells on each row", function () {
+      var row = <Row cells={[true, false]} />;
       expect(component.contains(row)).toBe(true);
     });
   });
