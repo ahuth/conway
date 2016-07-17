@@ -1,8 +1,10 @@
+"use strict";
+
 import React from "react";
 import Simulation from "components/simulation";
 import store from "store";
-import {setSize} from "actions";
 import {shallow} from "enzyme";
+import {toggleCell} from "actions";
 
 describe("components", function () {
   describe("<Simulation />", function () {
@@ -12,23 +14,20 @@ describe("components", function () {
       component = shallow(<Simulation />);
     });
 
-    it("has a grid", function () {
-      expect(component.find("Grid").length).toBe(1);
-    });
-
-    describe("the slider", function () {
+    describe("the grid", function () {
       it("exists", function () {
-        expect(component.find("Slider").length).toBe(1);
+        expect(component.find("Grid").length).toBe(1);
       });
 
-      describe("on change", function () {
+      describe("clicking", function () {
         beforeEach(function () {
-          spyOn(store, "dispatch").and.callThrough()
-          component.find("Slider").simulate("change", {target: {value: "10"}});
+          spyOn(store, "dispatch").and.callThrough();
+          component.find("Grid").simulate("cellClick", 6, 7);
         });
 
         it("dispatches the correct action", function () {
-          expect(store.dispatch).toHaveBeenCalledWith(setSize(10));
+          var action = toggleCell(6, 7);
+          expect(store.dispatch).toHaveBeenCalledWith(action);
         });
       });
     });

@@ -1,23 +1,44 @@
+"use strict";
+
 import Grid from "components/grid";
 import React from "react";
-import Row from "components/row";
 import {shallow} from "enzyme";
 
 describe("components", function () {
   describe("<Grid />", function () {
-    var component;
+    var clickSpy, component;
 
     beforeEach(function () {
-      component = shallow(<Grid height={6} width={8} />);
+      clickSpy = jasmine.createSpy("click");
+      component = shallow(
+        <Grid
+          cells={[
+            [false, true],
+            [true, false]
+          ]}
+          onCellClick={clickSpy}
+        />
+      );
     });
 
-    it("has the specified number of rows", function () {
-      expect(component.find("Row").length).toBe(6);
+    it("has the correct number of rows", function () {
+      expect(component.find("Row").length).toBe(2);
     });
 
-    it("sets the width on the rows", function () {
-      var row = <Row width={8} />;
-      expect(component.contains(row)).toBe(true);
+    it("sets the right cells on each row", function () {
+      var rows = component.find("Row");
+      expect(rows.at(0).prop("cells")).toEqual([false, true]);
+      expect(rows.at(1).prop("cells")).toEqual([true, false]);
+    });
+
+    describe("clicking a row's cell", function () {
+      beforeEach(function () {
+        component.find("Row").first().simulate("cellClick", 5);
+      });
+
+      it("executes the provided callback with the index and column", function () {
+        expect(clickSpy).toHaveBeenCalledWith(0, 5);
+      });
     });
   });
 });

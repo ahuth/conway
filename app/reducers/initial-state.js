@@ -1,10 +1,13 @@
 "use strict";
 
 const initialState = {
-  size: {
-    height: 10,
-    width: 10
-  }
+  cells: [
+    Array(10).fill(false), Array(10).fill(false),
+    Array(10).fill(false), Array(10).fill(false),
+    Array(10).fill(false), Array(10).fill(false),
+    Array(10).fill(false), Array(10).fill(false),
+    Array(10).fill(false), Array(10).fill(false),
+  ]
 };
 
 export default initialState;

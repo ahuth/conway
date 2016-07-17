@@ -2,9 +2,8 @@
 
 import Grid from "./grid";
 import React from "react";
-import Slider from "./slider";
 import store from "../store";
-import {setSize} from "../actions";
+import {toggleCell} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -23,15 +22,14 @@ var Simulation = React.createClass({
     this.setState(store.getState());
   },
 
-  handleSizeChange: function (event) {
-    store.dispatch(setSize(event.target.value));
+  onCellClick: function (row, column) {
+    store.dispatch(toggleCell(row, column));
   },
 
   render: function () {
     return (
       <div>
-        <Slider onChange={this.handleSizeChange} value={this.state.size.height} />
-        <Grid height={this.state.size.height} width={this.state.size.width} />
+        <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );
   }

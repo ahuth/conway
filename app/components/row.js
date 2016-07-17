@@ -2,20 +2,20 @@
 
 import Cell from "./cell";
 import React from "react";
-import times from "../utils/times";
 
-function Row({width}) {
+function Row({cells, onCellClick}) {
   return (
     <div style={styles.row}>
-      {times(width, function (number) {
-        return <Cell key={number} />;
+      {cells.map(function (alive, index) {
+        return <Cell alive={alive} key={index} onClick={onCellClick.bind(null, index)} />;
       })}
     </div>
   );
 }
 
 Row.propTypes = {
-  width: React.PropTypes.number.isRequired
+  cells: React.PropTypes.arrayOf(React.PropTypes.bool),
+  onCellClick: React.PropTypes.func
 };
 
 var styles = {

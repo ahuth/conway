@@ -2,9 +2,10 @@
 
 import {actionTypes} from "./constants";
 
-export function setSize(size) {
+export function toggleCell(row, column) {
   return {
-    type: actionTypes.SIZE_SET,
-    size: parseInt(size, 10)
+    type: actionTypes.CELL_TOGGLE,
+    row: row,
+    column: column
   };
 }
