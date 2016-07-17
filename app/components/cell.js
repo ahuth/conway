@@ -7,6 +7,10 @@ function Cell({alive}) {
   return <div style={Object.assign({}, styles.cell, aliveStyle)}></div>;
 }
 
+Cell.propTypes = {
+  alive: React.PropTypes.bool
+};
+
 var styles = {
   cell: {
     display: "inline-block",
