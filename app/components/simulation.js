@@ -2,9 +2,7 @@
 
 import Grid from "./grid";
 import React from "react";
-import Slider from "./slider";
 import store from "../store";
-import {setSize} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -23,14 +21,9 @@ var Simulation = React.createClass({
     this.setState(store.getState());
   },
 
-  handleSizeChange: function (event) {
-    store.dispatch(setSize(event.target.value));
-  },
-
   render: function () {
     return (
       <div>
-        <Slider onChange={this.handleSizeChange} value={this.state.size.height} />
         <Grid cells={this.state.cells} />
       </div>
     );
