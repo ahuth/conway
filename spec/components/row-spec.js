@@ -1,21 +1,37 @@
 "use strict";
 
-import Cell from "components/cell";
 import React from "react";
 import Row from "components/row";
 import {shallow} from "enzyme";
 
 describe("components", function () {
   describe("<Row />", function () {
-    var component;
+    var clickSpy, component;
 
     beforeEach(function () {
-      component = shallow(<Row cells={[false, false, true]} />);
+      clickSpy = jasmine.createSpy("click");
+      component = shallow(<Row cells={[false, false, true]} onCellClick={clickSpy} />);
     });
 
     it("has the specified cells", function () {
-      var cells = [<Cell alive={false} />, <Cell alive={false} />, <Cell alive={true} />];
-      expect(component.contains(cells)).toBe(true);
+      expect(component.find("Cell").length).toBe(3);
+    });
+
+    it("sets whether a cell is alive or not correctly", function () {
+      var cells = component.find("Cell");
+      expect(cells.at(0).prop("alive")).toBe(false);
+      expect(cells.at(1).prop("alive")).toBe(false);
+      expect(cells.at(2).prop("alive")).toBe(true);
+    });
+
+    describe("clicking a cell", function () {
+      beforeEach(function () {
+        component.find("Cell").first().simulate("click");
+      });
+
+      it("executes the provided callback", function () {
+        expect(clickSpy).toHaveBeenCalled();
+      });
     });
   });
 });
