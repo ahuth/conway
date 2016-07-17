@@ -9,10 +9,3 @@ export function toggleCell(row, column) {
     column: column
   };
 }
-
-export function setSize(size) {
-  return {
-    type: actionTypes.SIZE_SET,
-    size: parseInt(size, 10)
-  };
-}
