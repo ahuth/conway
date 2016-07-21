@@ -2,6 +2,12 @@
 
 import {actionTypes} from "./constants";
 
+export function clearWorld() {
+  return {
+    type: actionTypes.WORLD_CLEAR
+  };
+}
+
 export function processWorld() {
   return {
     type: actionTypes.WORLD_PROCESS

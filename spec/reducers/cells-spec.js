@@ -1,13 +1,26 @@
 "use strict";
 
 import cells from "reducers/cells";
-import {processWorld, toggleCell} from "actions";
+import {clearWorld, processWorld, toggleCell} from "actions";
 
 describe("reducers", function () {
   describe("cells", function () {
     it("returns the current state for unknown actions", function () {
       var currentState = [1, 2, 3, 4];
       expect(cells(currentState, {type: "WAT"})).toEqual(currentState);
+    });
+
+    describe("for clearWorld", function () {
+      var state;
+
+      beforeEach(function () {
+        state = [[true, true, false], [false, false, true]];
+        state = cells(state, clearWorld());
+      });
+
+      it("turns off all cells", function () {
+        expect(state).toEqual([[false, false, false], [false, false, false]]);
+      });
     });
 
     describe("for processWorld", function () {
