@@ -13,6 +13,7 @@ var Simulation = React.createClass({
 
   componentWillMount: function () {
     this.unsubscribe = store.subscribe(this.onChange);
+    this.props.timer(this.onTick);
   },
 
   componentWillUnmount: function () {
@@ -33,6 +34,13 @@ var Simulation = React.createClass({
     } else {
       store.dispatch(startWorld());
     }
+  },
+
+  onTick: function () {
+    if (this.state.running) {
+      store.dispatch(processWorld());
+    }
+    this.props.timer(this.onTick);
   },
 
   onStepClick: function () {
