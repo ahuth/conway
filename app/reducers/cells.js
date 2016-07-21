@@ -13,6 +13,8 @@ function cells(state = initialState.cells, action) {
       return clearCells(state);
     case actionTypes.WORLD_PROCESS:
       return process(state);
+    case actionTypes.WORLD_RANDOMIZE:
+      return randomizeCells(state);
     default:
       return state;
   }
@@ -24,9 +26,21 @@ function clearCells(state) {
   });
 }
 
+function randomizeCells(state) {
+  return state.map(function (row) {
+    return row.map(function () {
+      return randomBoolean();
+    });
+  });
+}
+
 function toggleCell(nextState, {row, column}) {
   nextState[row][column] = !nextState[row][column];
   return nextState;
+}
+
+function randomBoolean() {
+  return Math.random() >= 0.5;
 }
 
 export default cells;

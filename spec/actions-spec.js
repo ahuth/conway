@@ -20,6 +20,14 @@ describe("actions", function () {
     });
   });
 
+  describe("#randomizeWorld", function () {
+    it("returns the correct action", function () {
+      expect(actions.randomizeWorld()).toEqual({
+        type: actionTypes.WORLD_RANDOMIZE
+      });
+    });
+  });
+
   describe("#startWorld", function () {
     it("returns the correct action", function () {
       expect(actions.startWorld()).toEqual({

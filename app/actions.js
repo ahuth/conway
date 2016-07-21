@@ -14,6 +14,12 @@ export function processWorld() {
   };
 }
 
+export function randomizeWorld() {
+  return {
+    type: actionTypes.WORLD_RANDOMIZE
+  };
+}
+
 export function startWorld() {
   return {
     type: actionTypes.WORLD_START

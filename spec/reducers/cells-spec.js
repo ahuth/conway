@@ -1,7 +1,7 @@
 "use strict";
 
 import cells from "reducers/cells";
-import {clearWorld, processWorld, toggleCell} from "actions";
+import {clearWorld, processWorld, randomizeWorld, toggleCell} from "actions";
 
 describe("reducers", function () {
   describe("cells", function () {
@@ -39,6 +39,20 @@ describe("reducers", function () {
           [true, true, true],
           [false, false, false]
         ]);
+      });
+    });
+
+    describe("for randomizeWorld", function () {
+      var state;
+
+      beforeEach(function () {
+        state = [[true, true], [false, false]];
+        state = cells(state, randomizeWorld());
+      });
+
+      it("generates new cells", function () {
+        expect(state.length).toBe(2);
+        expect(state[0].length).toBe(2);
       });
     });
 

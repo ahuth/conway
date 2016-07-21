@@ -4,7 +4,7 @@ import React from "react";
 import Simulation from "components/simulation";
 import store from "store";
 import {shallow} from "enzyme";
-import {clearWorld, processWorld, startWorld, stopWorld, toggleCell} from "actions";
+import {clearWorld, processWorld, randomizeWorld, startWorld, stopWorld, toggleCell} from "actions";
 
 describe("components", function () {
   describe("<Simulation />", function () {
@@ -118,6 +118,35 @@ describe("components", function () {
 
         it("dispatches the clear action", function () {
           var action = clearWorld();
+          expect(store.dispatch).toHaveBeenCalledWith(action);
+        });
+
+        it("dispatches the stop action", function () {
+          var action = stopWorld();
+          expect(store.dispatch).toHaveBeenCalledWith(action);
+        });
+      });
+    });
+
+    describe("the random button", function () {
+      var button;
+
+      beforeEach(function () {
+        button = component.find("Button").at(3);
+      });
+
+      it("exists", function () {
+        expect(button.prop("text")).toEqual("Random");
+      });
+
+      describe("clicking", function () {
+        beforeEach(function () {
+          spyOn(store, "dispatch").and.callThrough();
+          button.simulate("click");
+        });
+
+        it("dispatches the randomize action", function () {
+          var action = randomizeWorld();
           expect(store.dispatch).toHaveBeenCalledWith(action);
         });
 
