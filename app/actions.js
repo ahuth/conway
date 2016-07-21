@@ -14,6 +14,12 @@ export function startWorld() {
   };
 }
 
+export function stopWorld() {
+  return {
+    type: actionTypes.WORLD_STOP
+  };
+}
+
 export function toggleCell(row, column) {
   return {
     type: actionTypes.CELL_TOGGLE,
