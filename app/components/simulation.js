@@ -4,7 +4,7 @@ import Button from "./button";
 import Grid from "./grid";
 import React from "react";
 import store from "../store";
-import {processWorld, startWorld, stopWorld, toggleCell} from "../actions";
+import {clearWorld, processWorld, randomizeWorld, startWorld, stopWorld, toggleCell} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -28,12 +28,26 @@ var Simulation = React.createClass({
     store.dispatch(toggleCell(row, column));
   },
 
+  onClearClick: function () {
+    store.dispatch(clearWorld());
+    store.dispatch(stopWorld());
+  },
+
   onPlayClick: function () {
     if (this.state.running) {
       store.dispatch(stopWorld());
     } else {
       store.dispatch(startWorld());
     }
+  },
+
+  onRandomClick: function () {
+    store.dispatch(randomizeWorld());
+    store.dispatch(stopWorld());
+  },
+
+  onStepClick: function () {
+    store.dispatch(processWorld());
   },
 
   onTick: function () {
@@ -43,15 +57,13 @@ var Simulation = React.createClass({
     this.props.timer(this.onTick);
   },
 
-  onStepClick: function () {
-    store.dispatch(processWorld());
-  },
-
   render: function () {
     return (
       <div>
         <Button onClick={this.onStepClick} text={"Step"} />
         <Button onClick={this.onPlayClick} text={this.state.running ? "Stop" : "Play"} />
+        <Button onClick={this.onClearClick} text={"Clear"} />
+        <Button onClick={this.onRandomClick} text={"Random"} />
         <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );
