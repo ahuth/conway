@@ -4,7 +4,7 @@ import React from "react";
 import Simulation from "components/simulation";
 import store from "store";
 import {shallow} from "enzyme";
-import {processWorld, startWorld, toggleCell} from "actions";
+import {processWorld, startWorld, stopWorld, toggleCell} from "actions";
 
 describe("components", function () {
   describe("<Simulation />", function () {
@@ -76,6 +76,17 @@ describe("components", function () {
         it("dispatches the correct action", function () {
           var action = startWorld();
           expect(store.dispatch).toHaveBeenCalledWith(action);
+        });
+
+        describe("and clicking again", function () {
+          beforeEach(function () {
+            button.simulate("click");
+          });
+
+          it("dispatches the correct action", function () {
+            var action = stopWorld();
+            expect(store.dispatch).toHaveBeenCalledWith(action);
+          });
         });
       });
     });

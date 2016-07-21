@@ -4,7 +4,7 @@ import Button from "./button";
 import Grid from "./grid";
 import React from "react";
 import store from "../store";
-import {processWorld, startWorld, toggleCell} from "../actions";
+import {processWorld, startWorld, stopWorld, toggleCell} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -28,7 +28,11 @@ var Simulation = React.createClass({
   },
 
   onPlayClick: function () {
-    store.dispatch(startWorld());
+    if (this.state.running) {
+      store.dispatch(stopWorld());
+    } else {
+      store.dispatch(startWorld());
+    }
   },
 
   onStepClick: function () {
