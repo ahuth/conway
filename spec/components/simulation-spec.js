@@ -4,7 +4,7 @@ import React from "react";
 import Simulation from "components/simulation";
 import store from "store";
 import {shallow} from "enzyme";
-import {processWorld, toggleCell} from "actions";
+import {processWorld, startWorld, toggleCell} from "actions";
 
 describe("components", function () {
   describe("<Simulation />", function () {
@@ -33,18 +33,48 @@ describe("components", function () {
     });
 
     describe("the step button", function () {
+      var button;
+
+      beforeEach(function () {
+        button = component.find("Button").first();
+      });
+
       it("exists", function () {
-        expect(component.find("Button").length).toBe(1);
+        expect(button.prop("text")).toEqual("Step");
       });
 
       describe("clicking", function () {
         beforeEach(function () {
           spyOn(store, "dispatch").and.callThrough();
-          component.find("Button").simulate("click");
+          button.simulate("click");
         });
 
         it("dispatches the correct action", function () {
           var action = processWorld();
+          expect(store.dispatch).toHaveBeenCalledWith(action);
+        });
+      });
+    });
+
+    describe("the play button", function () {
+      var button;
+
+      beforeEach(function () {
+        button = component.find("Button").last();
+      });
+
+      it("exists", function () {
+        expect(button.prop("text")).toEqual("Play");
+      });
+
+      describe("clicking", function () {
+        beforeEach(function () {
+          spyOn(store, "dispatch").and.callThrough();
+          button.simulate("click");
+        });
+
+        it("dispatches the correct action", function () {
+          var action = startWorld();
           expect(store.dispatch).toHaveBeenCalledWith(action);
         });
       });

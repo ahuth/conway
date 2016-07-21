@@ -8,6 +8,12 @@ export function processWorld() {
   };
 }
 
+export function startWorld() {
+  return {
+    type: actionTypes.WORLD_START
+  };
+}
+
 export function toggleCell(row, column) {
   return {
     type: actionTypes.CELL_TOGGLE,
