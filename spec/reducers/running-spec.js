@@ -9,29 +9,29 @@ describe("reducers", function () {
       var currentState = true;
       expect(running(currentState, {type: "WAT"})).toEqual(currentState);
     });
-  });
 
-  describe("for startWorld", function () {
-    var state;
+    describe("for startWorld", function () {
+      var state;
 
-    beforeEach(function () {
-      state = running(null, startWorld());
+      beforeEach(function () {
+        state = running(null, startWorld());
+      });
+
+      it("sets the state to true", function () {
+        expect(state).toBe(true);
+      });
     });
 
-    it("sets the state to true", function () {
-      expect(state).toBe(true);
-    });
-  });
+    describe("for stopWorld", function () {
+      var state;
 
-  describe("for stopWorld", function () {
-    var state;
+      beforeEach(function () {
+        state = running(null, stopWorld());
+      });
 
-    beforeEach(function () {
-      state = running(null, stopWorld());
-    });
-
-    it("sets the state to false", function () {
-      expect(state).toBe(false);
+      it("sets the state to false", function () {
+        expect(state).toBe(false);
+      });
     });
   });
 });
