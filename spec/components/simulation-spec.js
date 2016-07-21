@@ -32,7 +32,7 @@ describe("components", function () {
       });
     });
 
-    describe("the play button", function () {
+    describe("the step button", function () {
       it("exists", function () {
         expect(component.find("Button").length).toBe(1);
       });

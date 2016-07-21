@@ -27,7 +27,7 @@ var Simulation = React.createClass({
     store.dispatch(toggleCell(row, column));
   },
 
-  onPlayClick: function () {
+  onStepClick: function () {
     store.dispatch(processWorld());
   },
 
