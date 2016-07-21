@@ -2,16 +2,16 @@
 
 const initialState = {
   cells: [
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
-    Array(20).fill(false), Array(20).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
   ]
 };
 
