@@ -51,7 +51,7 @@ var Simulation = React.createClass({
     return (
       <div>
         <Button onClick={this.onStepClick} text={"Step"} />
-        <Button onClick={this.onPlayClick} text={"Play"} />
+        <Button onClick={this.onPlayClick} text={this.state.running ? "Stop" : "Play"} />
         <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );

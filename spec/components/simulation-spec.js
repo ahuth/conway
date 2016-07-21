@@ -78,6 +78,10 @@ describe("components", function () {
           expect(store.dispatch).toHaveBeenCalledWith(action);
         });
 
+        it("sets changes the text of the button", function () {
+          expect(button.prop("text")).toEqual("Stop");
+        });
+
         describe("and clicking again", function () {
           beforeEach(function () {
             button.simulate("click");
@@ -86,6 +90,10 @@ describe("components", function () {
           it("dispatches the correct action", function () {
             var action = stopWorld();
             expect(store.dispatch).toHaveBeenCalledWith(action);
+          });
+
+          it("sets changes the text of the button", function () {
+            expect(button.prop("text")).toEqual("Play");
           });
         });
       });
