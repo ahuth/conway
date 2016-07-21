@@ -12,6 +12,22 @@ describe("actions", function () {
     });
   });
 
+  describe("#startWorld", function () {
+    it("returns the correct action", function () {
+      expect(actions.startWorld()).toEqual({
+        type: actionTypes.WORLD_START
+      });
+    });
+  });
+
+  describe("#stopWorld", function () {
+    it("returns the correct action", function () {
+      expect(actions.stopWorld()).toEqual({
+        type: actionTypes.WORLD_STOP
+      });
+    });
+  });
+
   describe("#toggleCell", function () {
     it("returns the correct action", function () {
       expect(actions.toggleCell(1, 2)).toEqual({

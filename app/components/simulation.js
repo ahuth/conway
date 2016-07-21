@@ -4,7 +4,7 @@ import Button from "./button";
 import Grid from "./grid";
 import React from "react";
 import store from "../store";
-import {processWorld, toggleCell} from "../actions";
+import {processWorld, startWorld, stopWorld, toggleCell} from "../actions";
 
 var Simulation = React.createClass({
   getInitialState: function () {
@@ -13,6 +13,7 @@ var Simulation = React.createClass({
 
   componentWillMount: function () {
     this.unsubscribe = store.subscribe(this.onChange);
+    this.props.timer(this.onTick);
   },
 
   componentWillUnmount: function () {
@@ -28,13 +29,29 @@ var Simulation = React.createClass({
   },
 
   onPlayClick: function () {
+    if (this.state.running) {
+      store.dispatch(stopWorld());
+    } else {
+      store.dispatch(startWorld());
+    }
+  },
+
+  onTick: function () {
+    if (this.state.running) {
+      store.dispatch(processWorld());
+    }
+    this.props.timer(this.onTick);
+  },
+
+  onStepClick: function () {
     store.dispatch(processWorld());
   },
 
   render: function () {
     return (
       <div>
-        <Button onClick={this.onPlayClick} text={"Step"} />
+        <Button onClick={this.onStepClick} text={"Step"} />
+        <Button onClick={this.onPlayClick} text={this.state.running ? "Stop" : "Play"} />
         <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );
