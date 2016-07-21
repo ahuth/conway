@@ -11,7 +11,7 @@ describe("components", function () {
     var component;
 
     beforeEach(function () {
-      component = shallow(<Simulation />);
+      component = shallow(<Simulation timer={jasmine.createSpy} />);
     });
 
     describe("the grid", function () {
