@@ -4,6 +4,14 @@ import * as actions from "../app/actions";
 import {actionTypes} from "constants";
 
 describe("actions", function () {
+  describe("#processWorld", function () {
+    it("returns the correct action", function () {
+      expect(actions.processWorld()).toEqual({
+        type: actionTypes.WORLD_PROCESS
+      });
+    });
+  });
+
   describe("#toggleCell", function () {
     it("returns the correct action", function () {
       expect(actions.toggleCell(1, 2)).toEqual({

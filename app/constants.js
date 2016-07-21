@@ -2,5 +2,5 @@
 
 export const actionTypes = {
   CELL_TOGGLE: "cell_toggle",
-  SIZE_SET: "size_set"
+  WORLD_PROCESS: "world_process"
 };

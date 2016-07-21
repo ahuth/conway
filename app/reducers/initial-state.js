@@ -2,11 +2,16 @@
 
 const initialState = {
   cells: [
-    Array(10).fill(false), Array(10).fill(false),
-    Array(10).fill(false), Array(10).fill(false),
-    Array(10).fill(false), Array(10).fill(false),
-    Array(10).fill(false), Array(10).fill(false),
-    Array(10).fill(false), Array(10).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
+    Array(30).fill(false), Array(30).fill(false), Array(30).fill(false),
   ]
 };
 
