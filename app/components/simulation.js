@@ -34,7 +34,7 @@ var Simulation = React.createClass({
   render: function () {
     return (
       <div>
-        <Button onClick={this.onPlayClick} text={"▶"} />
+        <Button onClick={this.onPlayClick} text={"Step"} />
         <Grid cells={this.state.cells} onCellClick={this.onCellClick} />
       </div>
     );
