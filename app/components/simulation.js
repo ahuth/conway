@@ -41,13 +41,6 @@ var Simulation = React.createClass({
     }
   },
 
-  onTick: function () {
-    if (this.state.running) {
-      store.dispatch(processWorld());
-    }
-    this.props.timer(this.onTick);
-  },
-
   onRandomClick: function () {
     store.dispatch(randomizeWorld());
     store.dispatch(stopWorld());
@@ -55,6 +48,13 @@ var Simulation = React.createClass({
 
   onStepClick: function () {
     store.dispatch(processWorld());
+  },
+
+  onTick: function () {
+    if (this.state.running) {
+      store.dispatch(processWorld());
+    }
+    this.props.timer(this.onTick);
   },
 
   render: function () {
