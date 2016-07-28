@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "clone": "^1.0.2",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
     "redux": "^3.5.2"
   },
   "devDependencies": {
@@ -33,7 +33,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.0.4",
     "karma-webpack": "^1.7.0",
-    "react-addons-test-utils": "^15.1.0",
+    "react-addons-test-utils": "^15.2.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
