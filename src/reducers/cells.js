@@ -1,5 +1,3 @@
-"use strict";
-
 import clone from "clone";
 import initialState from "./initial-state";
 import process from "../utils/process";

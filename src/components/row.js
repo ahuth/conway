@@ -1,5 +1,3 @@
-"use strict";
-
 import Cell from "./cell";
 import React from "react";
 

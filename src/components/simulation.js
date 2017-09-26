@@ -1,5 +1,3 @@
-"use strict";
-
 import Button from "./button";
 import Grid from "./grid";
 import React from "react";

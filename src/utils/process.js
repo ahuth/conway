@@ -1,5 +1,3 @@
-"use strict";
-
 export default function process(world) {
   var nextWorld = world.map(function (row, rowIndex) {
     return row.map(function (isAlive, colIndex) {
