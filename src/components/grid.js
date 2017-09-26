@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Row from "./row";
 
@@ -12,8 +13,8 @@ export default function Grid({cells, onCellClick}) {
 }
 
 Grid.propTypes = {
-  cells: React.PropTypes.arrayOf(React.PropTypes.array),
-  onCellClick: React.PropTypes.func
+  cells: PropTypes.arrayOf(PropTypes.array),
+  onCellClick: PropTypes.func
 };
 
 const styles = {

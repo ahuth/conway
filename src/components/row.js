@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Cell from "./cell";
 import React from "react";
 
@@ -12,8 +13,8 @@ export default function Row({cells, onCellClick}) {
 }
 
 Row.propTypes = {
-  cells: React.PropTypes.arrayOf(React.PropTypes.bool),
-  onCellClick: React.PropTypes.func
+  cells: PropTypes.arrayOf(PropTypes.bool),
+  onCellClick: PropTypes.func
 };
 
 const styles = {

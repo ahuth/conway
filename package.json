@@ -4,6 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "clone": "^2.1.1",
+    "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-scripts": "1.0.13",

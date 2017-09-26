@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 export default function Cell({alive, onClick}) {
@@ -11,8 +12,8 @@ export default function Cell({alive, onClick}) {
 }
 
 Cell.propTypes = {
-  alive: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  alive: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 const styles = {
