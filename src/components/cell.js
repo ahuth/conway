@@ -1,6 +1,6 @@
 import React from "react";
 
-function Cell({alive, onClick}) {
+export default function Cell({alive, onClick}) {
   var aliveStyle = alive ? {backgroundColor: "black"} : {};
   return (
     <div
@@ -15,7 +15,7 @@ Cell.propTypes = {
   onClick: React.PropTypes.func
 };
 
-var styles = {
+const styles = {
   cell: {
     display: "inline-block",
     height: 10,
@@ -25,5 +25,3 @@ var styles = {
     marginBottom: -1
   }
 };
-
-export default Cell;

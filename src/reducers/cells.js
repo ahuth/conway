@@ -3,7 +3,7 @@ import initialState from "./initial-state";
 import process from "../utils/process";
 import {actionTypes} from "../constants";
 
-function cells(state = initialState.cells, action) {
+export default function cells(state = initialState.cells, action) {
   switch (action.type) {
     case actionTypes.CELL_TOGGLE:
       return toggleCell(clone(state), action);
@@ -40,5 +40,3 @@ function toggleCell(nextState, {row, column}) {
 function randomBoolean() {
   return Math.random() >= 0.5;
 }
-
-export default cells;

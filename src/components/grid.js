@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "./row";
 
-function Grid({cells, onCellClick}) {
+export default function Grid({cells, onCellClick}) {
   return (
     <div style={styles.grid}>
       {cells.map(function (moreCells, index) {
@@ -16,11 +16,9 @@ Grid.propTypes = {
   onCellClick: React.PropTypes.func
 };
 
-var styles = {
+const styles = {
   grid: {
     display: "flex",
     flexDirection: "column"
   }
 };
-
-export default Grid;

@@ -1,7 +1,7 @@
 import initialState from "./initial-state";
 import {actionTypes} from "../constants";
 
-function running(state = initialState.running, action) {
+export default function running(state = initialState.running, action) {
   switch (action.type) {
     case actionTypes.WORLD_START:
       return true;
@@ -11,5 +11,3 @@ function running(state = initialState.running, action) {
       return state;
   }
 }
-
-export default running;

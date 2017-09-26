@@ -1,7 +1,7 @@
 import Cell from "./cell";
 import React from "react";
 
-function Row({cells, onCellClick}) {
+export default function Row({cells, onCellClick}) {
   return (
     <div style={styles.row}>
       {cells.map(function (alive, index) {
@@ -16,10 +16,8 @@ Row.propTypes = {
   onCellClick: React.PropTypes.func
 };
 
-var styles = {
+const styles = {
   row: {
     display: "flex"
   }
 };
-
-export default Row;

@@ -4,7 +4,7 @@ import React from "react";
 import store from "../store";
 import {clearWorld, processWorld, randomizeWorld, startWorld, stopWorld, toggleCell} from "../actions";
 
-var Simulation = React.createClass({
+const Simulation = React.createClass({
   getInitialState: function () {
     return store.getState();
   },
