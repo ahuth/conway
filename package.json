@@ -2,8 +2,10 @@
   "name": "conway",
   "version": "0.1.0",
   "license": "MIT",
+  "homepage": "https://ahuth.github.io/conway",
   "dependencies": {
     "clone": "^2.1.1",
+    "gh-pages": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
@@ -14,6 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
