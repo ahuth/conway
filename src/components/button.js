@@ -9,6 +9,4 @@ Button.propTypes = {
   text: React.PropTypes.string.isRequired
 };
 
-var styles = {};
-
 export default Button;
