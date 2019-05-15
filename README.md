@@ -1,7 +1,7 @@
 Conway's Game of Life
 ============
 
-Cellular automata written in React and using Redux.
+Cellular automata in React.
 
 ![Conway's Game of Life](https://user-images.githubusercontent.com/2503289/57788047-45af0180-76eb-11e9-97cc-1a5e50b1f6d5.gif)
 
