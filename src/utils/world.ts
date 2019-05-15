@@ -37,10 +37,12 @@ export function step(world: World): World {
 }
 
 export function toggleCell(world: World, index: number): World {
-  world.cells[index] = Cell.toggle(world.cells[index]);
+  const cells = world.cells.slice();
+  cells[index] = Cell.toggle(cells[index]);
 
   return {
     ...world,
+    cells,
   };
 }
 
