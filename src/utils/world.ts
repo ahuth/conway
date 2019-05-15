@@ -8,6 +8,9 @@ interface World {
 
 export type Type = World;
 
+/**
+ * Create a new, empty World.
+ */
 export function create(size: number): World {
   return {
     cells: map(new Array(size * size), () => Cell.create()),
@@ -15,6 +18,9 @@ export function create(size: number): World {
   };
 }
 
+/**
+ * Randomize the cells of a World. Returns a new World.
+ */
 export function randomize(world: World): World {
   const { size } = world;
   return {
@@ -23,12 +29,18 @@ export function randomize(world: World): World {
   };
 }
 
+/**
+ * Execute a callback for every cell in a world, and return an array with the result of each.
+ */
 export function mapCells<T>(world: World, callback: (alive: boolean, index: number) => T) {
   return world.cells.map((cell, index) => {
     return callback(!!cell.alive, index);
   });
 }
 
+/**
+ * Return a new world with each cell in their "next" state.
+ */
 export function step(world: World): World {
   return {
     ...world,
@@ -36,6 +48,9 @@ export function step(world: World): World {
   };
 }
 
+/**
+ * Return a new world with a specific cell toggled.
+ */
 export function toggleCell(world: World, index: number): World {
   const cells = world.cells.slice();
   cells[index] = Cell.toggle(cells[index]);
