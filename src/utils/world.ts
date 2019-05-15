@@ -83,20 +83,17 @@ function getCoordinatesForIndex(world: World, index: number): { x: number, y: nu
 }
 
 function getIndexForCooridinates(world: World, x: number, y: number): number {
-  let adjustedX = x;
-  let adjustedY = y;
+  return wrapAround(x, world.size) + wrapAround(y, world.size) * world.size;
+}
 
-  if (adjustedX < 0) {
-    adjustedX = world.size - 1;
-  } else if (adjustedX >= world.size) {
-    adjustedX = 0;
+function wrapAround(number: number, size: number): number {
+  let output = number;
+
+  if (output < 0) {
+    output = size - 1;
+  } else if (output >= size) {
+    output = 0;
   }
 
-  if (adjustedY < 0) {
-    adjustedY = world.size - 1;
-  } else if (adjustedY >= world.size) {
-    adjustedY = 0;
-  }
-
-  return adjustedX + adjustedY * world.size;
+  return output;
 }
