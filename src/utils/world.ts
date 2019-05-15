@@ -23,7 +23,7 @@ export function randomize(world: World): World {
   };
 }
 
-export function mapCells(world: World, callback: (alive: boolean, index?: number) => unknown) {
+export function mapCells<T>(world: World, callback: (alive: boolean, index: number) => T) {
   return world.cells.map((cell, index) => {
     return callback(!!cell.alive, index);
   });
