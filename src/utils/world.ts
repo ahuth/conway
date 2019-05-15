@@ -28,3 +28,75 @@ export function mapCells<T>(world: World, callback: (alive: boolean, index: numb
     return callback(!!cell.alive, index);
   });
 }
+
+export function step(world: World): World {
+  return {
+    ...world,
+    cells: mapCells(world, (alive, index) => nextCell(world, alive, index)),
+  };
+}
+
+function nextCell(world: World, alive: boolean, index: number): Cell.Type {
+  return Cell.create(shouldLive(world, alive, index));
+}
+
+function shouldLive(world: World, alive: boolean, index: number): boolean {
+  const liveNeibhbors = getNeighborhood(world, index);
+
+  switch (liveNeibhbors) {
+    case 0:
+    case 1:
+      return false;
+    case 2:
+      return alive;
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+function getNeighborhood(world: World, index: number): number {
+  return getNeighborsForIndex(world, index).reduce((acc, cell) => acc + cell.alive, 0);
+}
+
+function getNeighborsForIndex(world: World, index: number): Array<Cell.Type> {
+  const { x, y } = getCoordinatesForIndex(world, index);
+
+  return [
+    world.cells[getIndexForCooridinates(world, x - 1, y + 1)],
+    world.cells[getIndexForCooridinates(world, x, y + 1)],
+    world.cells[getIndexForCooridinates(world, x + 1, y + 1)],
+    world.cells[getIndexForCooridinates(world, x - 1, y)],
+    world.cells[getIndexForCooridinates(world, x + 1, y)],
+    world.cells[getIndexForCooridinates(world, x - 1, y - 1)],
+    world.cells[getIndexForCooridinates(world, x, y - 1)],
+    world.cells[getIndexForCooridinates(world, x + 1, y - 1)],
+  ];
+}
+
+function getCoordinatesForIndex(world: World, index: number): { x: number, y: number } {
+  return {
+    x: index % world.size,
+    y: Math.floor(index / world.size),
+  };
+}
+
+function getIndexForCooridinates(world: World, x: number, y: number): number {
+  let adjustedX = x;
+  let adjustedY = y;
+
+  if (adjustedX < 0) {
+    adjustedX = world.size - 1;
+  } else if (adjustedX >= world.size) {
+    adjustedX = 0;
+  }
+
+  if (adjustedY < 0) {
+    adjustedY = world.size - 1;
+  } else if (adjustedY >= world.size) {
+    adjustedY = 0;
+  }
+
+  return adjustedX + adjustedY * world.size;
+}
