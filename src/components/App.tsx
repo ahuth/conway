@@ -1,30 +1,16 @@
 import React, { useState } from 'react';
-import useInterval from '../hooks/useInterval';
+import Grid from './Grid';
+import * as World from '../utils/world';
+
+const initialWorld = World.create(50);
 
 export default function App() {
-  const [delay, setDelay] = useState(500);
-  const [count, setCount] = useState(0);
-
-  useInterval(() => {
-    setCount(c => c + 1);
-  }, delay);
+  const [world, setWorld] = useState(initialWorld);
 
   return (
     <div>
-      <label htmlFor="set-delay">Delay</label>
-      <input
-        id="set-delay"
-        max="5000"
-        min="100"
-        onChange={e => setDelay(Number(e.target.value))}
-        step="100"
-        type="range"
-        value={delay}
-      />
-      <br />
-      <span>Current delay is {delay}ms</span>
-      <br />
-      <span>{count}</span>
+      <button onClick={() => setWorld(World.randomize(world))}>Random</button>
+      <Grid world={world} />
     </div>
   );
 }
