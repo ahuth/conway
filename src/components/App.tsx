@@ -10,6 +10,7 @@ export default function App() {
   return (
     <div>
       <button onClick={() => setWorld(World.step(world))}>Step</button>
+      <button onClick={() => setWorld(initialWorld)}>Clear</button>
       <button onClick={() => setWorld(World.randomize(world))}>Random</button>
       <Grid world={world} />
     </div>
