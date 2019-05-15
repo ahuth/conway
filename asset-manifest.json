@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/conway/static/css/main.d8037b08.chunk.css",
-    "main.js": "/conway/static/js/main.e96e241d.chunk.js",
-    "main.js.map": "/conway/static/js/main.e96e241d.chunk.js.map",
+    "main.js": "/conway/static/js/main.99f966f6.chunk.js",
+    "main.js.map": "/conway/static/js/main.99f966f6.chunk.js.map",
     "runtime~main.js": "/conway/static/js/runtime~main.0c9b0b32.js",
     "runtime~main.js.map": "/conway/static/js/runtime~main.0c9b0b32.js.map",
     "static/js/2.27e3d94f.chunk.js": "/conway/static/js/2.27e3d94f.chunk.js",
     "static/js/2.27e3d94f.chunk.js.map": "/conway/static/js/2.27e3d94f.chunk.js.map",
     "index.html": "/conway/index.html",
-    "precache-manifest.416cb786b31d0de73170a985efd353b1.js": "/conway/precache-manifest.416cb786b31d0de73170a985efd353b1.js",
+    "precache-manifest.0064ca8633a488aedaf9edc4fea9df7b.js": "/conway/precache-manifest.0064ca8633a488aedaf9edc4fea9df7b.js",
     "service-worker.js": "/conway/service-worker.js",
     "static/css/main.d8037b08.chunk.css.map": "/conway/static/css/main.d8037b08.chunk.css.map"
   }
