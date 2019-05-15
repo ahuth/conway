@@ -3,7 +3,7 @@ import Grid from './Grid';
 import useSimulation from '../hooks/useSimulation';
 
 export default function App() {
-  const { world, playing, doClear, doRandomize, doStep, doToggleStart } = useSimulation();
+  const { world, playing, doClear, doRandomize, doStep, doToggleCell, doToggleStart } = useSimulation();
 
   return (
     <div>
@@ -11,7 +11,7 @@ export default function App() {
       <button onClick={doToggleStart}>{playing ? 'Stop' : 'Play'}</button>
       <button onClick={doClear}>Clear</button>
       <button onClick={doRandomize}>Random</button>
-      <Grid world={world} />
+      <Grid onClick={doToggleCell} world={world} />
     </div>
   );
 }

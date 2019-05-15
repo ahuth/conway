@@ -9,3 +9,9 @@ export function create(alive = false): Cell {
     alive: alive ? 1 : 0,
   };
 }
+
+export function toggle(cell: Cell): Cell {
+  return {
+    alive: cell.alive ? 0 : 1,
+  };
+}

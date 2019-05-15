@@ -1,9 +1,15 @@
 import * as World from './utils/world';
 
-export enum Actions {
+export type Action = {
+  type: ActionTypes,
+  data?: any,
+}
+
+export enum ActionTypes {
   clear,
   randomize,
   step,
+  toggleCell,
   toggleStart,
 }
 
@@ -17,21 +23,26 @@ export const initialState = {
   playing: false,
 }
 
-export default function reducer(state: State, action: Actions) {
-  switch (action) {
-    case Actions.clear:
+export default function reducer(state: State, action: Action) {
+  switch (action.type) {
+    case ActionTypes.clear:
       return initialState;
-    case Actions.randomize:
+    case ActionTypes.randomize:
       return {
         world: World.randomize(state.world),
         playing: false,
       };
-    case Actions.step:
+    case ActionTypes.step:
       return {
         ...state,
         world: World.step(state.world),
       };
-    case Actions.toggleStart:
+    case ActionTypes.toggleCell:
+      return {
+        world: World.toggleCell(state.world, action.data),
+        playing: false,
+      };
+    case ActionTypes.toggleStart:
       return {
         ...state,
         playing: !state.playing,

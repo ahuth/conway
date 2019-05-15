@@ -36,6 +36,14 @@ export function step(world: World): World {
   };
 }
 
+export function toggleCell(world: World, index: number): World {
+  world.cells[index] = Cell.toggle(world.cells[index]);
+
+  return {
+    ...world,
+  };
+}
+
 function nextCell(world: World, alive: boolean, index: number): Cell.Type {
   return Cell.create(shouldLive(world, alive, index));
 }
