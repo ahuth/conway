@@ -11,11 +11,7 @@ export default function useSimulation() {
   const doToggleCell = useCallback((index) => dispatch({ type: ActionTypes.toggleCell, data: index }), []);
   const doToggleStart = useCallback(() => dispatch({ type: ActionTypes.toggleStart }), []);
 
-  useInterval(
-    () => dispatch({ type: ActionTypes.step }),
-    50,
-    state.playing,
-  );
+  useInterval(doStep, 50, state.playing);
 
   return {
     world: state.world,
