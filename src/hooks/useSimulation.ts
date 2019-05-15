@@ -1,24 +1,27 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useReducer } from 'react';
+import reducer, { Actions, initialState } from '../reducer';
 import useInterval from './useInterval';
-import * as World from '../utils/world';
 
-export default function useSimulation(
-  world: World.Type,
-  setWorld: (world: World.Type) => void,
-  playing: boolean
-) {
-  const worldRef = useRef(world);
+export default function useSimulation() {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    worldRef.current = world;
-  }, [world]);
+  const doClear = useCallback(() => dispatch(Actions.clear), []);
+  const doRandomize = useCallback(() => dispatch(Actions.randomize), []);
+  const doStep = useCallback(() => dispatch(Actions.step), []);
+  const doToggleStart = useCallback(() => dispatch(Actions.toggleStart), []);
 
   useInterval(
-    useCallback(
-      () => setWorld(World.step(worldRef.current)),
-      [worldRef, setWorld],
-    ),
+    () => dispatch(Actions.step),
     50,
-    playing,
+    state.playing,
   );
+
+  return {
+    world: state.world,
+    playing: state.playing,
+    doClear,
+    doRandomize,
+    doStep,
+    doToggleStart,
+  };
 }
