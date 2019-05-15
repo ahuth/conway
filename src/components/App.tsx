@@ -3,7 +3,7 @@ import Grid from './Grid';
 import useSimulation from '../hooks/useSimulation';
 
 export default function App() {
-  const { world, playing, doClear, doRandomize, doStep, doToggleCell, doToggleStart } = useSimulation();
+  const { world, playing, doClear, doRandomize, doStep, doToggleCell, doToggleStart } = useSimulation(50);
   const [showGridLines, setShowGridLines] = useState(true);
 
   return (
