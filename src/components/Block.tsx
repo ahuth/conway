@@ -3,17 +3,16 @@ import React, { useMemo } from 'react';
 type Props = {
   on: boolean,
   onClick: () => void,
-  showGridLines: boolean,
 }
 
-export default function Block({ on, onClick, showGridLines }: Props) {
-  const styles = useMemo(() => getStyles(on, showGridLines), [on, showGridLines]);
+export default function Block({ on, onClick }: Props) {
+  const styles = useMemo(() => getStyles(on), [on]);
   return <div onClick={onClick} role="button" style={styles} />;
 }
 
-function getStyles(on: boolean, showGridLines: boolean) {
+function getStyles(on: boolean) {
   return {
     backgroundColor: on ? 'whitesmoke' : 'black',
-    border: showGridLines ? '1px solid rebeccapurple' : undefined,
+    border: '1px solid rebeccapurple',
   };
 }
