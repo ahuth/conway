@@ -2,7 +2,7 @@ import { useCallback, useReducer } from 'react';
 import reducer, { ActionTypes, initialState } from '../reducer';
 import useInterval from './useInterval';
 
-export default function useSimulation(delay: number) {
+export default function useSimulation() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const doClear = useCallback(() => dispatch({ type: ActionTypes.clear }), []);
@@ -11,7 +11,7 @@ export default function useSimulation(delay: number) {
   const doToggleCell = useCallback((index) => dispatch({ type: ActionTypes.toggleCell, data: index }), []);
   const doToggleStart = useCallback(() => dispatch({ type: ActionTypes.toggleStart }), []);
 
-  useInterval(doStep, delay, state.playing);
+  useInterval(doStep, 50, state.playing);
 
   return {
     world: state.world,
