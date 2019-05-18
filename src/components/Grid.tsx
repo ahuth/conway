@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function Grid({ onClick, world }: Props) {
-  const styles = useMemo(() => getStyles(world.size), [world.size])
+  const styles = useMemo(() => getStyles(world.size), [world.size]);
 
   return (
     <div style={styles}>

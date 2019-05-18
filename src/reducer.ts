@@ -21,7 +21,7 @@ export interface State {
 export const initialState = {
   world: World.create(50),
   playing: false,
-}
+};
 
 export default function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -46,7 +46,7 @@ export default function reducer(state: State, action: Action) {
       return {
         ...state,
         playing: !state.playing,
-      }
+      };
     default:
       return state;
   }
