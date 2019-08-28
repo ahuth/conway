@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from './Grid';
 import useSimulation from '../hooks/useSimulation';
 
-const simulationSpeed = 50; // ms
+const simulationSpeed = 100; // ms
 
 export default function App() {
   const { world, playing, doClear, doRandomize, doStep, doToggleCell, doToggleStart } = useSimulation(simulationSpeed);
