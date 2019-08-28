@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/conway/static/css/main.d8037b08.chunk.css",
-    "main.js": "/conway/static/js/main.a7855236.chunk.js",
-    "main.js.map": "/conway/static/js/main.a7855236.chunk.js.map",
+    "main.js": "/conway/static/js/main.9d44d070.chunk.js",
+    "main.js.map": "/conway/static/js/main.9d44d070.chunk.js.map",
     "runtime~main.js": "/conway/static/js/runtime~main.0c9b0b32.js",
     "runtime~main.js.map": "/conway/static/js/runtime~main.0c9b0b32.js.map",
-    "static/js/2.27e3d94f.chunk.js": "/conway/static/js/2.27e3d94f.chunk.js",
-    "static/js/2.27e3d94f.chunk.js.map": "/conway/static/js/2.27e3d94f.chunk.js.map",
+    "static/js/2.47cf7248.chunk.js": "/conway/static/js/2.47cf7248.chunk.js",
+    "static/js/2.47cf7248.chunk.js.map": "/conway/static/js/2.47cf7248.chunk.js.map",
     "index.html": "/conway/index.html",
-    "precache-manifest.6c85457013c1222d230fb111d37f375a.js": "/conway/precache-manifest.6c85457013c1222d230fb111d37f375a.js",
+    "precache-manifest.80e315808aabafde36e1716c1d729647.js": "/conway/precache-manifest.80e315808aabafde36e1716c1d729647.js",
     "service-worker.js": "/conway/service-worker.js",
     "static/css/main.d8037b08.chunk.css.map": "/conway/static/css/main.d8037b08.chunk.css.map"
   }
